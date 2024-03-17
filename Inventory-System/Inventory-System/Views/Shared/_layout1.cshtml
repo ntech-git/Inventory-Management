@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <link href="~/Content/style/custom.css" rel="stylesheet" />
+
+</head>
+<body>
+    <section id="hero">
+        <div class="hero-container">
+            <div>
+                <h1>Inventory System</h1>
+
+                <ul class="actions">
+                    <li class="btn-student">@Html.ActionLink("Seller", "SellerLogin", "Seller")</li>
+                    <li class="btn-teacher">@Html.ActionLink("Buyer", "BuyerLogin", "Buyer")</li>
+
+                </ul>
+
+            </div>
+        </div>
+    </section>
+    @RenderBody()
+</body>
+</html>

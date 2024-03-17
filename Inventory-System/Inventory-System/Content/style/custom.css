@@ -1,0 +1,92 @@
+﻿/* Custom CSS for centering the card */
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.gradient-card {
+
+    background: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#hero a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#hero {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    background: url(../images/inventory.jpg) no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 1024px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+#hero .hero-container {
+    background: rgba(0, 0, 0, 0.8);
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#hero h1 {
+    margin: 0px 0px 10px 33px;
+    font-weight: 700;
+    line-height: 48px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+
+#hero .actions li {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 2px;
+    transition: 0.5s;
+    margin: 50px 10px 10px 10px;
+}
+
+#hero .btn-student {
+    border: 2px solid #03C4EB;
+}
+
+    #hero .btn-student:hover {
+        background: #03C4EB;
+        border: 2px solid #03C4EB;
+    }
+
+#hero .btn-teacher {
+    border: 2px solid #03C4EB;
+}
+
+    #hero .btn-teacher:hover {
+        background: #03C4EB;
+        border: 2px solid #03C4EB;
+    }
+    
+

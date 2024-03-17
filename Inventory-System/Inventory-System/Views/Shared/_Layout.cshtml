@@ -6,6 +6,28 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        .navbar {
+            background: #fcb69f;
+        }
+
+        .navbar-brand {
+            padding: 15px 0;
+        }
+
+            .navbar-brand img {
+                max-height: 50px;
+                vertical-align: middle;
+            }
+
+        .profile-picture {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #ccc; /* Placeholder color */
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -16,15 +38,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+                <div class="d-flex align-items-center justify-content-center " >
+             
+                        <img src="~/Content/images/logo.png" height="50px" width="50px" class="rounder-full" alt="Logo" />
+                      
+                
+                </div>
+              
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+         
+            <div class="navbar-collapse mx-5 collapse">
+               
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="d-flex align-items-center justify-content-center " style="margin-top:4px">
+                            <img src="~/Content/images/user.png" height="50px" width="50px" class="rounder-full" alt="Logo" />
+                            <span class="ml-2">@Session["firstName"] @Session["lastName"]</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
+
         </div>
     </div>
     <div class="container body-content">

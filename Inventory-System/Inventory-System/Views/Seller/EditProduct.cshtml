@@ -1,0 +1,110 @@
+﻿@model Inventory_System.Models.Products
+@{
+    ViewBag.Title = "EditProduct";
+    Layout = "~/Views/Shared/authLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/images/favicon.png" type="image/x-icon" />
+    <title>Facebook Login</title>
+    <link href="~/Content/style/custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&family=Lobster&display=swap"
+          rel="stylesheet">
+
+</head>
+<style>
+    .logo-text-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        margin-right: 10px; /* Adjust as needed */
+        height: 80px;
+        width: 80px;
+    }
+
+    .profile {
+        margin-right: 10px; /* Adjust as needed */
+        height: 50px;
+        width: 50px;
+    }
+</style>
+<body>
+    <section class="gradient-form p-0">
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-center" style="margin-top: -44px">
+                <div class="col-xl-8 d-flex align-items-center">
+                    <img src="~/Content/images/logo.png" alt="Logo" class="logo">
+                    <h3><span style="font-size:35px">Welcome</span> to online inventory system</h3>
+                </div>
+                <div class="col-xl-4 d-flex align-items-center justify-content-end">
+                    <div class="logo-text-container">
+                        <img src="~/Content/images/user.png" alt="logo" class="profile">
+                        <h4>@Session["firstName"] @Session["lastName"]</h4>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <div class="row d-flex justify-content-center" style="margin-top:60px">
+                <div class="col-md-6 ">
+                    <div class="card py-1 gradient-card">
+                        <h3 class="text-center">Add Products</h3>
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-center mb-4">
+                                @using (Html.BeginForm("EditProduct", "seller", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                <form class="login">
+                                    @Html.Hidden("pid", Request.Params["pid"])
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.EditorFor(model => model.name, new { htmlAttributes = new { placeholder = "name", @class = "form-control", required = true } })
+                                            <label class="form-label" for="form3Example1c">Product Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.TextAreaFor(model => model.description, new { @class = "form-control", placeholder = "description", required = "required", rows = "4" })
+                                            <label class="form-label" for="form3Example1c">Description</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.EditorFor(model => model.price, new { htmlAttributes = new { placeholder = "price", @class = "form-control", required = true } })
+                                            <label class="form-label" for="form3Example3c"> Price</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            @Html.EditorFor(model => model.category, new { htmlAttributes = new { placeholder = "category", @class = "form-control", required = true } })
+                                            <label class="form-label" for="form3Example4c">Category</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex  mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn w-75 btn-primary btn-lg">Edit Product</button>
+                                    </div>
+                                </form>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

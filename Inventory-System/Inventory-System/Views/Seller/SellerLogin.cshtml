@@ -1,0 +1,98 @@
+﻿@model Inventory_System.Models.Seller
+
+@{
+    ViewBag.Title = "SellerLogin";
+    Layout = "~/Views/Shared/authLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/images/favicon.png" type="image/x-icon" />
+    <title>Facebook Login</title>
+    <link href="~/Content/style/custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500&family=Lobster&display=swap"
+          rel="stylesheet">
+
+</head>
+<body>
+    <section class="gradient-form">
+        <div class="container py-5">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <div class="text-center">
+                                        <div class="d-flex align-items-center justify-content-center">
+                                            <img src="~/Content/images/user.png"
+                                                 style="width: 150px;" alt="logo" />
+                                        </div>
+                                        <h4 class="mt-1 mb-5 pb-1">Welcome to Inventory System</h4>
+                                    </div>
+
+                                    @using (Html.BeginForm())
+                                    {
+                                        <form class="login">
+                                            <p>Please login to your account</p>
+
+                                            <div class="form-outline mb-4">
+
+                                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { placeholder = "email address", @class = "form-control", required = true } })
+
+                                                <label class="form-label" for="form2Example11">Username</label>
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { type = "password", @class = "form-control", placeholder = "password", required = true } })
+                                                <label class="form-label" for="form2Example22">Password</label>
+                                            </div>
+
+                                            <div class="text-center pt-1 mb-5 pb-1">
+                                                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
+                                                    Log
+                                                    in
+                                                </button>
+
+                                            </div>
+                                        </form>
+                                    }
+                                    <div class="d-flex align-items-center justify-content-center pb-4">
+                                        <p class="mb-0 me-2">Don't have an account?</p>
+                                        <a class="mx-2" href="/Seller/SellerSignup">Create new</a>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h4 class="mb-4">Efficiently manage your inventory</h4>
+                                    <p class="small mb-0">
+                                        Our inventory management system allows you to track and organize your inventory efficiently.
+                                        Whether you're managing products, stock levels, or orders, our system provides the tools you need
+                                        to streamline your operations and maximize productivity.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @if (!string.IsNullOrEmpty(ViewBag.AlertMessage))
+    {
+        <script>
+        alert("@Html.Raw(ViewBag.AlertMessage)");
+        </script>
+    }
+</body>
+</html>
